@@ -8,4 +8,14 @@ class Api::V1::IdeasController < ApplicationController
   def show
     respond_with Idea.find(params[:id])
   end
+
+  def create
+    idea = Idea.create(idea_params)
+  end
+
+  private
+
+  def idea_params
+    params.permit(:title, :body, :quality)
+  end
 end
