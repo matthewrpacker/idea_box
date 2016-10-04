@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-offset-4">
+    <div class="col-md-offset-2">
       <table>
         <thead class="idea-head">
           <h1 class="table-title">All Ideas</h1>
@@ -14,7 +14,7 @@
           <% @ideas.each do |idea| %>
           <tr class="idea">
             <td><%= idea.title %></td>
-            <td><%= idea.body %></td>
+            <td><%= idea.body.truncate(100, separator: ' ') %></td>
             <td><%= idea.rating %></td>
           </tr>
           <% end %>

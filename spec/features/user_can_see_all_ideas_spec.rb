@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature 'User can view all ideas' do
+RSpec.feature 'visits root path' do
   fixtures :ideas
 
-  scenario 'visits root path' do
+  scenario 'User can view all ideas' do
 
     visit '/'
 
@@ -22,6 +22,18 @@ RSpec.feature 'User can view all ideas' do
         expect(page).to have_content(idea.title)
         expect(page).to have_content(idea.body)
         expect(page).to have_content(idea.rating)
+      end
+    end
+  end
+
+  scenario 'Idea body is always less than 100 characters' do
+    visit '/'
+
+    expect(current_path).to eq(root_path)
+
+    within('.idea-body') do
+      Idea.all.each do |idea|
+        expect(idea.body.chars.count).to be < 101
       end
     end
   end
