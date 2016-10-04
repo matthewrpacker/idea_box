@@ -71,24 +71,44 @@ describe "Ideas" do
   end
 
   it 'can update an existing idea' do
-    idea = Idea.create(title: "Fantastic idea", body: "This is the best idea", quality: 2)
+    idea = Idea.last
 
-    expect(idea.id).to eq(5)
-    expect(idea.title).to eq("Fantastic idea")
-    expect(idea.body).to eq("This is the best idea")
+    expect(idea.title).to eq("Big Idea")
+    expect(idea.body).to eq("Amazing idea")
     expect(idea.quality).to eq(2)
 
     params = {title: "OK idea", body: "This idea is actually not the best", quality: 1}
 
-    patch '/api/v1/ideas/5', params: params
+    patch "/api/v1/ideas/#{idea.id}", params: params
 
-    edited_idea = Idea.find(5)
+    edited_idea = Idea.find(idea.id)
 
     expect(response).to be_success
 
-    expect(edited_idea.id).to eq(5)
     expect(edited_idea.title).to eq("OK idea")
     expect(edited_idea.body).to eq("This idea is actually not the best")
     expect(edited_idea.quality).to eq(1)
+  end
+
+  it 'can delete an existing idea' do
+    ideas = Idea.all
+    first_idea = Idea.first
+
+    expect(ideas.count).to eq(3)
+    expect(first_idea.id).to eq(1)
+    expect(first_idea.title).to eq("Small Idea")
+    expect(first_idea.body).to eq("Not an amazing idea")
+    expect(first_idea.quality).to eq(0)
+
+    delete '/api/v1/ideas/1'
+
+    revised_first_idea = Idea.first
+
+    expect(response).to be_success
+    expect(ideas.count).to eq(2)
+    expect(revised_first_idea.id).to eq(2)
+    expect(revised_first_idea.title).to eq("Medium Idea")
+    expect(revised_first_idea.body).to eq("Pretty good idea")
+    expect(revised_first_idea.quality).to eq(1)
   end
 end
