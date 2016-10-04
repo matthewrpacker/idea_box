@@ -66,7 +66,29 @@ describe "Ideas" do
 
     expect(idea.id).to eq(4)
     expect(idea.title).to eq("Fourth idea")
-    expect(idea['body']).to eq("Not a bad idea")
+    expect(idea.body).to eq("Not a bad idea")
     expect(idea.quality).to eq(1)
+  end
+
+  it 'can update an existing idea' do
+    idea = Idea.create(title: "Fantastic idea", body: "This is the best idea", quality: 2)
+
+    expect(idea.id).to eq(5)
+    expect(idea.title).to eq("Fantastic idea")
+    expect(idea.body).to eq("This is the best idea")
+    expect(idea.quality).to eq(2)
+
+    params = {title: "OK idea", body: "This idea is actually not the best", quality: 1}
+
+    patch '/api/v1/ideas/5', params: params
+
+    edited_idea = Idea.find(5)
+
+    expect(response).to be_success
+
+    expect(edited_idea.id).to eq(5)
+    expect(edited_idea.title).to eq("OK idea")
+    expect(edited_idea.body).to eq("This idea is actually not the best")
+    expect(edited_idea.quality).to eq(1)
   end
 end

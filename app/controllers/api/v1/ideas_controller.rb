@@ -13,6 +13,11 @@ class Api::V1::IdeasController < ApplicationController
     idea = Idea.create(idea_params)
   end
 
+  def update
+    idea = Idea.find(params[:id])
+    idea.update(idea_params)
+  end
+
   private
 
   def idea_params
