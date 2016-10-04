@@ -18,6 +18,11 @@ class Api::V1::IdeasController < ApplicationController
     idea.update(idea_params)
   end
 
+  def destroy
+    idea = Idea.find(params[:id])
+    idea.delete
+  end
+
   private
 
   def idea_params
