@@ -64,7 +64,6 @@ describe "Ideas" do
 
     idea = Idea.last
 
-    expect(idea.id).to eq(4)
     expect(idea.title).to eq("Fourth idea")
     expect(idea.body).to eq("Not a bad idea")
     expect(idea.quality).to eq(1)
