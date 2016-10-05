@@ -11,6 +11,7 @@ class Api::V1::IdeasController < ApplicationController
 
   def create
     idea = Idea.create(idea_params)
+    respond_with :api, :v1, idea
   end
 
   def update
