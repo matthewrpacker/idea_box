@@ -20,10 +20,13 @@
           <% end %>
         </tbody>
       </table><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2">
       <form class="idea-form" method="post" action="/api/v1/ideas">
-        <input id="idea-title" type="text" placeholder="Enter new idea title" />
-        <input id="idea-body" type="text" placeholder="Enter new idea description" />
-        <input id="idea-quality" type="text" placeholder="Enter quality from 0 to 2 (0 = Swill, 1 = Plausible, 2 = Genius)" />
+        <input id="idea-title" type="text" placeholder="Enter new idea title" /><br>
+        <input id="idea-body" type="text" placeholder="Enter new idea description" /><br>
         <input type="submit" value="Save" class="btn btn-success" />
       </form>
     </div>

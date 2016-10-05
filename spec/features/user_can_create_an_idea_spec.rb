@@ -6,14 +6,13 @@ describe "Create Idea", type: :feature, js: true do
 
     fill_in 'idea-title', with: 'New Idea'
     fill_in 'idea-body', with: 'This is a great idea'
-    fill_in 'idea-quality', with: 2
 
     click_on 'Save'
 
     within('.idea-body') do
       expect(page).to have_content("New Idea")
       expect(page).to have_content("This is a great idea")
-      expect(page).to have_content("Genuis")
+      expect(page).to have_content("Swill")
     end
   end
 
@@ -24,7 +23,6 @@ describe "Create Idea", type: :feature, js: true do
 
     fill_in 'idea-title', with: 'New Idea'
     fill_in 'idea-body', with: 'This is a great idea'
-    fill_in 'idea-quality', with: 2
 
     click_on 'Save'
 
