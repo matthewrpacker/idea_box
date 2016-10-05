@@ -12,4 +12,8 @@ class Idea < ApplicationRecord
       "Genius"
     end
   end
+
+  def self.descending
+    order("created_at DESC")
+  end
 end

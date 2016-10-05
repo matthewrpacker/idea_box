@@ -22,10 +22,16 @@ td {
   margin-left: 340px;
 }
 
-.idea-form {
-  margin-left: -17px;
+.btn {
+  margin-top: 10px
 }
 
 #idea-body {
-  margin-top: 10px
+  margin-top: 10px;
+  width: 840px;
+}
+
+#idea-title {
+  margin-top: 10px;
+  width: 840px;
 }
