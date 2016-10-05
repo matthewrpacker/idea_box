@@ -20,12 +20,12 @@
           <% end %>
         </tbody>
       </table><br>
-      <div class="col-md-8 idea-form">
-        <div class="form-group">
-          <input class="form-control" type="text" id="idea-description" placeholder="Enter you next idea">
-        </div>
-        <input class="btn btn-success pull-center" id="create-idea" type="button" name="submit" value="Create Idea">
-      </div>
+      <form class="idea-form" method="post" action="/api/v1/ideas">
+        <input id="idea-title" type="text" placeholder="Enter new idea title" />
+        <input id="idea-body" type="text" placeholder="Enter new idea description" />
+        <input id="idea-quality" type="text" placeholder="Enter quality from 0 to 2 (0 = Swill, 1 = Plausible, 2 = Genius)" />
+        <input type="submit" value="Save" class="btn btn-success" />
+      </form>
     </div>
   </div>
 </div>

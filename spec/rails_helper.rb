@@ -63,3 +63,12 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def assign_page_id
+  page_id = SecureRandom.hex
+  page.evaluate_script "window.pageIdForTesting = '#{page_id}'"
+end
+
+def current_page_id
+  page.evaluate_script("window.pageIdForTesting")
+end
