@@ -16,10 +16,15 @@ $(function(){
       }
     }
 
+    function clearForm(id){
+      $(id)[0].reset();
+    }
+
     function newIdea(idea){
       var html = "<tr><td>"+ idea.title +"</td><td>"+ idea.body +"</td><td>"+ rating(idea.quality) +"</td></tr>";
 
       $('.idea-body').prepend(html);
+      clearForm('.idea-form');
     }
 
     $.ajax({
