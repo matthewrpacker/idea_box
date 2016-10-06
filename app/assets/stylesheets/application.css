@@ -18,6 +18,10 @@ td {
   padding-right: 50px;
 }
 
+#th-body{
+  width: 647px
+}
+
 .table-title {
   margin-left: 340px;
 }
