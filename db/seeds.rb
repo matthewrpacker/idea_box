@@ -15,9 +15,3 @@ Idea.create(title: "Third Idea", body: "This is the third idea body.", quality: 
 puts "Third idea created"
 Idea.create(title: "Fourth Idea", body: "This is the fourth idea body.", quality: 0)
 puts "Fourth idea created"
-Idea.create(
-  title: "Fifth Idea",
-  body: "This is a bad idea.  Maybe this idea should not be recorded, but I am recording it because you never know.",
-  quality: 1
-)
-puts "Fifth idea created"

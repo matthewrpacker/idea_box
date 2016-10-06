@@ -20,8 +20,16 @@ $(function(){
       $(id)[0].reset();
     }
 
+    function truncateSentence(sentence){
+      if (sentence.length > 100){
+        var truncatedSentence = sentence.substr(0, 100);
+        sentence = truncatedSentence.substr(0, truncatedSentence.lastIndexOf(" "))+'...'
+      }
+      return sentence
+    }
+
     function newIdea(idea){
-      var html = "<tr class='idea' data-target='"+ idea.id +"'><td>"+ idea.title +"</td><td id='td-body'>"+ idea.body +"</td><td>"+ rating(idea.quality) +"</td><td><button type='button' name='button' class='btn btn-danger btn-xs'>Delete</button></td></tr>";
+      var html = "<tr class='idea' data-target='"+ idea.id +"'><td>"+ idea.title +"</td><td id='td-body'>"+ truncateSentence(idea.body) +"</td><td>"+ rating(idea.quality) +"</td><td><button type='button' name='button' class='btn btn-danger btn-xs'>Delete</button></td></tr>";
 
       $('.idea-body').prepend(html);
       clearForm('.idea-form');
