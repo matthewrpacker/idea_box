@@ -21,10 +21,11 @@ $(function(){
     }
 
     function newIdea(idea){
-      var html = "<tr><td>"+ idea.title +"</td><td>"+ idea.body +"</td><td>"+ rating(idea.quality) +"</td></tr>";
+      var html = "<tr class='idea' data-target='"+ idea.id +"'><td>"+ idea.title +"</td><td id='td-body'>"+ idea.body +"</td><td>"+ rating(idea.quality) +"</td><td><button type='button' name='button' class='btn btn-danger btn-xs'>Delete</button></td></tr>";
 
       $('.idea-body').prepend(html);
       clearForm('.idea-form');
+      deleteSelectedIdea();
     }
 
     $.ajax({

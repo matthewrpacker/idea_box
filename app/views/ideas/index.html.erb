@@ -6,16 +6,17 @@
           <h1 class="table-title">All Ideas</h1>
           <tr>
             <th>Title</th>
-            <th>Body</th>
+            <th id="th-body">Body</th>
             <th>Quality</th>
           </tr>
         </thead>
         <tbody class="idea-body">
           <% @ideas.each do |idea| %>
-          <tr class="idea">
+          <tr class="idea" data-target="<%= idea.id %>">
             <td><%= idea.title %></td>
-            <td><%= idea.body.truncate(100, separator: ' ') %></td>
+            <td id="td-body"><%= idea.body.truncate(100, separator: ' ') %></td>
             <td><%= idea.rating %></td>
+            <td><button type="button" name="button" class="btn btn-danger btn-xs">Delete</button></td>
           </tr>
           <% end %>
         </tbody>
